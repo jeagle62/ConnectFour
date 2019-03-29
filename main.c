@@ -445,7 +445,7 @@ int main(){
         printf("Invalid board size - four in a row impossible. Please try again.\n");
         goto Rows;
     }
-    if(row>35||col>35){printf("\nDue to the size of the board, the display may be misaligned.\n\n");}
+    if(row>50||col>50){printf("\nDue to the size of the board, the display may be misaligned.\n\n");}
     //initialize board
     struct graph* temp = &board;
     //load row and col into board
