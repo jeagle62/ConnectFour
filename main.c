@@ -63,7 +63,12 @@ void printBoard(struct graph board){
     //print numbers above board
     printf(" ");
     for(int n = 0;n < board.col;n++){
+      if(n<10){
         printf(" %i ",n);
+      }
+      else{
+        printf(" %i",n);
+      }
     }
     printf("\n");
     //print top of board
@@ -152,7 +157,7 @@ int checkWin(struct graph board, char player)
                         if(isValid(board,r,c-3)==1&&board.adjmat[r][c-3]==player)
                         {
                             printf("%c wins!\n",player);
-                            if(player=='R')
+                            if(player=='X')
                             {
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
@@ -171,7 +176,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r,c+2)==1&&board.adjmat[r][c+2]==player){
                         if(isValid(board,r,c+3)==1&&board.adjmat[r][c+3]==player){
                             printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -188,7 +193,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r-2,c)==1&&board.adjmat[r-2][c]==player){
                         if(isValid(board,r-3,c)==1&&board.adjmat[r-3][c]==player){
                             printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -205,7 +210,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r+2,c)==1&&board.adjmat[r+2][c]==player){
                         if(isValid(board,r+3,c)==1&&board.adjmat[r+3][c]==player){
                             printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -222,7 +227,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r-2,c+2)==1&&board.adjmat[r-2][c+2]==player){
                         if(isValid(board,r-3,c+3)==1&&board.adjmat[r-3][c+3]==player){
                            printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -239,7 +244,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r-2,c-2)==1&&board.adjmat[r-2][c-2]==player){
                         if(isValid(board,r-3,c-3)==1&&board.adjmat[r-3][c-3]==player){
                             printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -256,7 +261,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r+2,c+2)==1&&board.adjmat[r+2][c+2]==player){
                         if(isValid(board,r+3,c+3)==1&&board.adjmat[r+3][c+3]==player){
                             printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -273,7 +278,7 @@ int checkWin(struct graph board, char player)
                     if(isValid(board,r+2,c-2)==1&&board.adjmat[r+2][c-2]==player){
                         if(isValid(board,r+3,c-3)==1&&board.adjmat[r+3][c-3]==player){
                             printf("%c wins!\n",player);
-                            if(player=='R'){
+                            if(player=='X'){
                                 p1Wins++;
                                 printf("Score:\nP1: %i\tP2: %i\n\n",p1Wins,p2Wins);
                             }
@@ -310,7 +315,7 @@ int soloPlay(struct graph board){
     }
     //ternary operator to switch players
     //if player = 0, then set player to 1, else set player to 0
-    board.player = (board.player=='R') ? (board.player = 'Y') : (board.player = 'R');
+    board.player = (board.player=='X') ? (board.player = 'O') : (board.player = 'X');
     //call until there is a win
     soloPlay(board);
     //here to prevent infinite loop, should never be accessed
@@ -319,7 +324,7 @@ int soloPlay(struct graph board){
 }
 
 int multiPlay(struct graph board){
-    if(board.player=='R'){
+    if(board.player=='X'){
         printf("Player 1's move:\n");
     }
     else{
@@ -332,7 +337,7 @@ int multiPlay(struct graph board){
     }
     //ternary operator to switch players
     //if player = 0, then set player to 1, else set player to 0
-    board.player = (board.player=='R') ? (board.player = 'Y') : (board.player = 'R');
+    board.player = (board.player=='X') ? (board.player = 'O') : (board.player = 'X');
     //call until there is a win
     multiPlay(board);
     //here to prevent infinite loop, should never be accessed
@@ -449,7 +454,7 @@ int main(){
     //load max number of digits into board
     board.dig=0;
     //player one to start on board
-    board.player='R';
+    board.player='X';
     while(col>10){
         col/=10;
         board.dig++;
