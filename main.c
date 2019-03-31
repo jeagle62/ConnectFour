@@ -116,6 +116,7 @@ struct graph dropPiece(struct graph board, char player){
         printf("Invalid input, please try again.\n");
         goto ChooseLoc;
     }
+    return board;
 }
 
 int isValid(struct graph board, int crow, int ccol){
@@ -756,8 +757,7 @@ struct graph aiDropPiece(struct graph board, int loc){
                 return board;
             }
         }
-    //return board;
-
+    return board;
 }
 
 struct graph fixBoard(struct graph board, int loc){
@@ -767,8 +767,7 @@ struct graph fixBoard(struct graph board, int loc){
                 return board;
             }
         }
-    //return board;
-
+    return board;
 }
 
 int main(){
@@ -788,6 +787,7 @@ int main(){
     //eat the trailing newline char
     scanf("%c",&space);
     //read input from user into mode
+
     if(check!=1){
         printf("Error - not an integer. Please re-enter your selection.\n\n");
         goto Menu1;
@@ -836,7 +836,7 @@ int main(){
         printf("Invalid board size - four in a row impossible. Please try again.\n");
         goto Rows;
     }
-    if(row>35||col>60){printf("\nDue to the size of the board, the display may be misaligned.\n\n");}
+    if(row>35||col>35){printf("\nDue to the size of the board, the display may be misaligned.\n\n");}
     //initialize board
     struct graph* temp = &board;
     //load row and col into board
