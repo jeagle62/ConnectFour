@@ -15,11 +15,13 @@ INSTRUCTIONS:
 
 
 AI FUNCTIONALITY:
+
 - Search board, for each possible 4 in a row add for AI favored, subtract for player favored
 -place tile in each column possible, then calculate points on new board
 -add points, 1 for each open spot adjacent to a piece, 1+4+13 for tiles in a row with a space at the end
 -if win is possible, set points to max
 -if enemy win is possible, block it (or never allow the situation to happen if possible)
+
 It's a little more involved but that's essentially the basics for right now
 
 WEB SOURCES USED FOR REFERENCE:
