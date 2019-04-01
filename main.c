@@ -396,7 +396,7 @@ int aiPlay(struct graph board){
         board = aiDropPiece(board,move);*/
 
         printf("AI's move:\n");
-            for(int x=0;x<board.col;x++)
+            for(int x=0;x<board.col-1;x++)
             {
                 if(board.adjmat[0][x]==' ')
                 {
@@ -408,6 +408,7 @@ int aiPlay(struct graph board){
                         move = x;
 
                     }
+                     //printf("%i - score, %i - move\n",score,move);
                 }
             }
 
