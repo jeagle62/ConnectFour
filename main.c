@@ -396,10 +396,8 @@ int aiPlay(struct graph board){
         board = aiDropPiece(board,move);*/
 
         printf("AI's move:\n");
-            for(int x=0;x<board.col-1;x++)
-            {
-                if(board.adjmat[0][x]==' ')
-                {
+            for(int x=0;x<board.col-1;x++){
+                if(board.adjmat[0][x]==' '){
                     tempscore = calcScore(aiDropPiece(board,x));
                     board = fixBoard(board,x);
                     //if new board better than other iterations, assign it as the new iteration
