@@ -134,9 +134,9 @@ int checkWin(struct graph board, char player){
             //if player's token in location
             if(board.adjmat[r][c]==player){
                 //check left
-                if(isValid(board,r,c-1)==1&&board.adjmat[r][c-1]==player){
-                    if(isValid(board,r,c-2)==1&&board.adjmat[r][c-2]==player){
-                        if(isValid(board,r,c-3)==1&&board.adjmat[r][c-3]==player){
+                if(isValid(board,r,c-1) == 1 && board.adjmat[r][c-1]==player){
+                    if(isValid(board,r,c-2) == 1 && board.adjmat[r][c-2]==player){
+                        if(isValid(board,r,c-3) == 1 && board.adjmat[r][c-3]==player){
                             printf("%c wins!\n",player);
                             if(player=='X'){
                                 p1Wins++;
@@ -396,14 +396,17 @@ int aiPlay(struct graph board){
         board = aiDropPiece(board,move);*/
 
         printf("AI's move:\n");
-            for(int x=0;x<board.col;x++){
-                if(board.adjmat[0][x]==' '){
+            for(int x=0;x<board.col;x++)
+            {
+                if(board.adjmat[0][x]==' ')
+                {
                     tempscore = calcScore(aiDropPiece(board,x));
                     board = fixBoard(board,x);
                     //if new board better than other iterations, assign it as the new iteration
-                    if(tempscore>score){
+                    if(tempscore>score||(tempscore==0&&score==0)){
                         score = tempscore;
                         move = x;
+
                     }
                 }
             }
@@ -797,6 +800,9 @@ int main(){
         printf("Invalid selection, please try again.\n");
         goto Menu1;
     }
+    if(mode==4){
+        goto Exit;
+    }
     //define Rows for value check
     Rows:
     printf("Please enter the number of rows: ");
@@ -902,10 +908,11 @@ int main(){
                     goto Rows;
                 }
                 break;
-        case 4: printf("\nThank you for playing, have a nice day!");
+        case 4: Exit:
+                printf("\nThank you for playing, have a nice day!");
                 return 0;
 
-        default: break;
+          default: break;
     }
 
     //free memory allocated to board, clearing states
