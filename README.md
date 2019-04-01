@@ -1,6 +1,8 @@
 # ConnectFour
 Connect Four Game for CS201 Portfolio Project
 
+Youtube Demo: https://youtu.be/WX2P048jYJQ
+
 INSTRUCTIONS:
 
 1) "make" will run the makefile to compile the program, named C4, rather than a.out
